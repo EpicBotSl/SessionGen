@@ -1,6 +1,6 @@
 {
   "name": "Epic Session Gen Bot",
-  "description: "Telethon & pyrogram session gen bot",
+  "description": "Telethon & pyrogram session gen bot",
   "logo": "https://te.legra.ph/file/97e45c843108aa0798a7d.jpg",
   "keywords": [
     "telegram",
