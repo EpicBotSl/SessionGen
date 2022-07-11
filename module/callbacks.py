@@ -1,5 +1,5 @@
 import traceback
-from script import SCRIPT
+from script import *
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
 from module.generate import generate_session, ask_ques, buttons_ques
@@ -18,7 +18,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
                 chat_id=chat_id,
                 message_id=message_id,
                 text=Data.START.format(callback_query.from_user.mention, mention),
-                reply_markup=InlineKeyboardMarkup(Data.buttons),
+                reply_markup=InlineKeyboardMarkup(buttons),
             )
     elif query == "generate":
         await callback_query.answer()
