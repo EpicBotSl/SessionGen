@@ -7,7 +7,7 @@ from pyrogram.errors import *
 from pyrogram.types import *
 
 START_BUTTON = InlineKeyboardMarkup([[
-                 InlineKeyboardButton('🍁ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴇꜱꜱɪᴏᴏɴɴ🍁', callback_data="generate")
+                 InlineKeyboardButton('🍁ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴇꜱꜱɪᴏᴏɴɴ🍁', callback_data="gen")
                  ],
                  [
                  InlineKeyboardButton('☔ ʜᴇʟᴘ ☔', callback_data="Help"),
