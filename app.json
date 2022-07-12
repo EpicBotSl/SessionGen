@@ -52,7 +52,7 @@
       "required": true,
       "value": ""
     },
-    "HEROKU_API_KEY": {
+    "HEROKU_APP_NAME": {
       "description": "Heroku App name",
       "required": true,
       "value": ""
