@@ -2,6 +2,7 @@ import traceback
 from script import *
 from module.main import *
 from pyrogram import Client
+from module.generate import *
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
 from module.generate import generate_session, ask_ques, buttons_ques
 
