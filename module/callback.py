@@ -22,3 +22,12 @@ async def tgm(bot, update):
          await update.answer(
              text="🐥 Send Me your Choice 🐥",
          )
+    elif update.data == "back":
+         await update.message.edit_text(
+             text=BACK_TXT,
+             reply_markup=START_BUTTON,
+             disable_web_page_preview=True
+         )
+         await update.answer(
+             text="🕊️ Welcome Back 🕊️",
+         )
