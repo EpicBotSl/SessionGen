@@ -31,16 +31,16 @@ from telethon.errors import (
     PasswordHashInvalidError
 )
 
-ask_ques = "🏆 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐥𝐞𝐜𝐭 𝐲𝐨𝐮𝐫 𝐝𝐞𝐬𝐢𝐫𝐞𝐝 𝐭𝐲𝐩𝐞 𝐛𝐞𝐥𝐥𝐨𝐰 🎯"
+ask_ques = "👀𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐥𝐞𝐜𝐭 𝐲𝐨𝐮𝐫 𝐝𝐞𝐬𝐢𝐫𝐞𝐝 𝐭𝐲𝐩𝐞 𝐛𝐞𝐥𝐥𝐨𝐰"
 buttons_ques = [
     [
-        InlineKeyboardButton("🎴 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 🎴", callback_data="pyrogram1"),
+        InlineKeyboardButton("🕊️ 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 🕊️", callback_data="pyrogram1"),
     ],
     [ 
-        InlineKeyboardButton("🎴 𝑻𝒆𝒍𝒆𝒕𝒉𝒐𝒏 🎴", callback_data="telethon"),
+        InlineKeyboardButton("🕊️ 𝑻𝒆𝒍𝒆𝒕𝒉𝒐𝒏 🕊️", callback_data="telethon"),
     ],
     [
-        InlineKeyboardButton("🎴 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 𝒏𝒆𝒘 🎴", callback_data="pyrogram"),
+        InlineKeyboardButton("🕊️ 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 𝒏𝒆𝒘 🕊️", callback_data="pyrogram"),
     ],
 ]
 
@@ -59,9 +59,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
             ty += " v2"
     if is_bot:
         ty += " Bot"
-    await msg.reply(f"👻 ꜱᴛᴀʀᴛ ʏᴏᴜʀ {ty} ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴀᴛᴇ...")
+    await msg.reply(f"🕊️ ꜱᴛᴀʀᴛ ʏᴏᴜʀ {ty} ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴀᴛᴇ...")
     user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, '🔰ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **API_ID**🔰', filters=filters.text)
+    api_id_msg = await bot.ask(user_id, '🕊️ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **API_ID**', filters=filters.text)
     if await cancelled(api_id_msg):
         return
     try:
@@ -69,19 +69,19 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     except ValueError:
         await api_id_msg.reply('❌ ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ **API_ID** ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀʀ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
-    api_hash_msg = await bot.ask(user_id, '🔰ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **API_HASH**🔰', filters=filters.text)
+    api_hash_msg = await bot.ask(user_id, '🕊️ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **API_HASH**', filters=filters.text)
     if await cancelled(api_hash_msg):
         return
     api_hash = api_hash_msg.text
     if not is_bot:
-        t = "🔰ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **PHONE_NUMBER** ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ🔰"
+        t = "🕊️ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ **PHONE_NUMBER** ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ"
     else:
-        t = "🔰ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅʏᴏᴜʀ **BOT_TOKEN** 🔰"
+        t = "🕊️ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅʏᴏᴜʀ **BOT_TOKEN**"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
     if await cancelled(phone_number_msg):
         return
     phone_number = phone_number_msg.text
-    await msg.reply("🚦ꜱᴇɴᴅɪɴɢ ᴏᴛᴘ.....")
+    await msg.reply("🐣ꜱᴇɴᴅɪɴɢ ᴏᴛᴘ.....")
     if telethon and is_bot:
         client = TelegramClient(StringSession(), api_id, api_hash)
         await client.start(bot_token=phone_number)
@@ -110,7 +110,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     try:
         phone_code_msg = None
         if not is_bot:
-            phone_code_msg = await bot.ask(user_id, "🏮 ᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ꜰᴏʀ ᴀɴ OTᑭ ɪɴ ᴏꜰꜰɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴄᴄᴏᴜɴᴛ 🚩 ɪꜰ ʏᴏᴜ ɢᴏᴛ ɪᴛ ? 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐧𝐝 𝐢𝐭 𝐚𝐬 **1 2 3 4 5**", filters=filters.text, timeout=600)
+            phone_code_msg = await bot.ask(user_id, "🐳ᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ꜰᴏʀ ᴀɴ OTᑭ ɪɴ ᴏꜰꜰɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴄᴄᴏᴜɴᴛ 🚩 ɪꜰ ʏᴏᴜ ɢᴏᴛ ɪᴛ ? 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐧𝐝 𝐢𝐭 𝐚𝐬 **1 2 3 4 5**", filters=filters.text, timeout=600)
             if await cancelled(phone_code_msg):
                 return
     except TimeoutError:
@@ -131,7 +131,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
             return
         except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
             try:
-                two_step_msg = await bot.ask(user_id, 'ʏᴏᴜ ᴀᴄᴄᴏᴜɴᴛ ʜᴀꜱ ʙᴇᴇɴ ᴇɴᴀʙʟᴇᴅ ⇥ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴀʀɪꜰɪᴄᴀᴛɪᴏɴ⇤ **∞ᴘʟᴇᴀꜱᴇ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇ ᴘᴀꜱꜱᴡᴏʀᴅ∞**', filters=filters.text, timeout=300)
+                two_step_msg = await bot.ask(user_id, '🕊️ʏᴏᴜ ᴀᴄᴄᴏᴜɴᴛ ʜᴀꜱ ʙᴇᴇɴ ᴇɴᴀʙʟᴇᴅ ⇥ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴀʀɪꜰɪᴄᴀᴛɪᴏɴ⇤ **∞ᴘʟᴇᴀꜱᴇ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇ ᴘᴀꜱꜱᴡᴏʀᴅ∞**', filters=filters.text, timeout=300)
             except TimeoutError:
                 await msg.reply('🔕ᴛɪᴍᴇ ʟɪᴍɪᴛ ʀɪᴄʜ 5 ᴍɪɴᴜᴛᴇꜱ🔕 **ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴏʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ ↻**', reply_markup=InlineKeyboardMarkup(generate_button))
                 return
@@ -164,13 +164,13 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
 
 async def cancelled(msg):
     if "/cancel" in msg.text:
-        await msg.reply("✅ᴄᴀɴᴄᴇʟʟᴇᴅ ᴛʜᴇ ᴘʀᴏᴄᴇꜱꜱ✅", quote=True, reply_markup=InlineKeyboardMarkup(generate_button))
+        await msg.reply("ᴄᴀɴᴄᴇʟʟᴇᴅ ᴛʜᴇ ᴘʀᴏᴄᴇꜱꜱ✅", quote=True, reply_markup=InlineKeyboardMarkup(generate_button))
         return True
     elif "/restart" in msg.text:
         await msg.reply("🎓ʀᴇꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ🎓", quote=True, reply_markup=InlineKeyboardMarkup(generate_button))
         return True
     elif msg.text.startswith("/"):  # Bot Commands
-        await msg.reply("✅ᴄᴀɴᴄᴇʟʟᴇᴅ ᴛʜᴇ ɢᴇɴᴇʀᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ✅", quote=True)
+        await msg.reply("ᴄᴀɴᴄᴇʟʟᴇᴅ ᴛʜᴇ ɢᴇɴᴇʀᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ✅", quote=True)
         return True
     else:
         return False
