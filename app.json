@@ -37,6 +37,11 @@
       "required": true,
       "value": "16884543"
     },
+    "MONGO_URI": {
+      "description": "Get this value from mongodb.com",
+      "required": true,
+      "value": ""
+    },
     "API_HASH": {
       "description": "Get this value from my.telegram.org.",
       "required": true,
