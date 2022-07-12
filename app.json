@@ -42,6 +42,11 @@
       "required": true,
       "value": ""
     },
+    "BOT_USERNAME": {
+      "description": "Your Bot User Name",
+      "required": true,
+      "value": ""
+    },
     "AUTH_CHANNEL": {
       "description": "Your Fsub Channel Id",
       "required": true,
