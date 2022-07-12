@@ -1,7 +1,10 @@
 import datetime
+import os
 
 import config
 import logging
+from config import *
+from script import *
 
 from database.db import Database
 
