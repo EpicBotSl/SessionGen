@@ -29,6 +29,7 @@ import heroku3
 import requests
 from helper.heroku_helper import HerokuHelper
 from helper.fsub import forcesub
+from root import *
 #--------------------------------------------------Db-------------------------------------------------#
 
 
@@ -87,8 +88,15 @@ async def start(app, message):
     file_id = "CAADAgADuQIAAladvQq6Ay8ze3xA6gI"
     await app.send_sticker(message.chat.id, file_id)
     text = f"""
-      ❣ᴍʏ ᴅᴇᴀʀ {message.from_user.mention} ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴇᴘɪᴄ ꜱᴛɪᴄᴋᴇʀ ʙᴏᴛ ⬗
-    ❦ᴄʟɪᴄᴋ ᴛᴏ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ ᴍᴇ"""
+      ❣ʜɪ {message.from_user.mention} 
+   ⏦ɪ ᴀᴍ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴇᴛᴏʀ ʙᴏᴛ ⏦
+🍁ɪ ᴄᴀɴ ɢᴇɴᴇʀᴇʀᴀᴛᴇ :
+        🌀**ᴘʏʀᴏɢʀᴀᴍ**
+        🌀**ᴛᴇʟᴇᴛʜᴏɴ**
+        🌀**ᴘʏʀᴏɢʀᴀᴍ ᴠ2**
+
+🌍ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ ᴩʏʀᴏɢʀᴀᴍ
+☔ᴘʀᴏᴊᴇᴄᴛ ʙʏ : [ᴇᴘɪᴄ ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ](https://t.me/EpicBotsSl)"""
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
@@ -96,3 +104,5 @@ async def start(app, message):
         disable_web_page_preview=True,
         quote=True
     )
+
+
