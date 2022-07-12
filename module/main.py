@@ -27,6 +27,7 @@ from database.db import Database
 from asyncio import *
 import heroku3
 import requests
+from script import *
 from helper.heroku_helper import HerokuHelper
 from helper.fsub import forcesub
 from root import *
