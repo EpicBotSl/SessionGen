@@ -232,7 +232,7 @@ STAT_STICKER = ["CAACAgQAAxkBAAEFHRditZFgRBAPm-9bkFJUQKOjSEgxoQACfwsAAmgpeVF2roP
          ]
 
 
-@Client.on_message(filters.command(["help", "help@SessionGenerateBot"]))
+@Client.on_message(filters.command("help"))
 async def help(bot, message):
     if await forcesub(bot, message):
        return
@@ -244,7 +244,7 @@ async def help(bot, message):
          )
 
 @Client.on_message(filters.command("about"))
-async def help(bot, message):
+async def about(bot, message):
     if await forcesub(bot, message):
        return
     await bot.send_sticker(message.chat.id, HTCR)
