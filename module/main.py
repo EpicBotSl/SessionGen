@@ -31,6 +31,7 @@ from script import *
 from helper.heroku_helper import HerokuHelper
 from helper.fsub import forcesub
 from root import *
+from database.check_user import *
 #--------------------------------------------------Db-------------------------------------------------#
 
 
@@ -56,7 +57,7 @@ Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
 DATABASE_URL=MONGO_URI
-db = Database(DATABASE_URL, "Ss_bot"")
+db = Database(DATABASE_URL, "session_bot")
 
 #╔════╗────────╔═══╗
 #║╔╗╔╗║────────║╔══╝
