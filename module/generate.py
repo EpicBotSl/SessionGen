@@ -42,7 +42,7 @@ buttons_ques = [
     ],
     [
         InlineKeyboardButton("⏎", callback_data="back")
-]
+]]
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
