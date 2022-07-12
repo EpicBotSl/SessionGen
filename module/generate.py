@@ -35,13 +35,13 @@ ask_ques = "👀𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐥𝐞𝐜𝐭 𝐲𝐨𝐮�
 buttons_ques = [
     [
         InlineKeyboardButton("🕊️ 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 🕊️", callback_data="pyrogram1"),
-    ],
-    [ 
-        InlineKeyboardButton("🕊️ 𝑻𝒆𝒍𝒆𝒕𝒉𝒐𝒏 🕊️", callback_data="telethon"),
+        InlineKeyboardButton("🕊️ 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 v2 🕊️", callback_data="pyrogram")
     ],
     [
-        InlineKeyboardButton("🕊️ 𝑷𝒚𝒓𝒐𝒈𝒓𝒂𝒎 𝒏𝒆𝒘 🕊️", callback_data="pyrogram"),
+        InlineKeyboardButton("🕊️ 𝑻𝒆𝒍𝒆𝒕𝒉𝒐𝒏 🕊️", callback_data="telethon")
     ],
+    [
+        InlineKeyboardButton("⏎", callback_data="back")
 ]
 
 
