@@ -16,7 +16,7 @@ async def tgm(bot, update):
     elif update.data == "gen":
          await update.message.edit_text(
              text=ask_ques,
-             reply_markup=buttons_ques,
+             reply_markup=InlineKeyboardMarkup(buttons_ques),
              disable_web_page_preview=True
          )
          await update.answer(
