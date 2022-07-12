@@ -69,18 +69,19 @@ db = Database(DATABASE_URL, "session_bot")
 #──────────────────╚╝
 #---------------------------Commands Start Epic-------------------------------------#
 
+client = Client
 
 @Client.on_message(filters.command("start"))
-async def start(bot, message):
-    if await forcesub(bot, message):
+async def start(client, message):
+    if await forcesub(client, message):
        return
     chat_id = message.from_user.id
     if not await db.is_user_exist(chat_id):
-        data = await bot.get_me()
+        data = await client.get_me()
         BOT_USERNAME = data.username
         await db.add_user(chat_id)
         if -1001741009206:
-            await bot.send_message(
+            await client.send_message(
                 -1001741009206,
                 f"#NEWUSER: \n\n**User:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n\**ID:**{message.from_user.id}\n Started @{BOT_USERNAME} !!",
             )
@@ -88,7 +89,7 @@ async def start(bot, message):
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     await message.delete()
     file_id = "CAADAgADuQIAAladvQq6Ay8ze3xA6gI"
-    await bot.send_sticker(message.chat.id, file_id)
+    await client.send_sticker(message.chat.id, file_id)
     text = f"""
       ❣ʜɪ {message.from_user.mention} 
    ⏦ɪ ᴀᴍ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴇᴛᴏʀ ʙᴏᴛ ⏦
