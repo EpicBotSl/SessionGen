@@ -5,7 +5,7 @@ import logging
 
 from database.db import Database
 
-db = Database(MONGO_URI, "Ss_bot")  
+db = Database(MONGO_URI, "session_bot")  
 
 async def handle_user_status(bot, cmd):
     chat_id = cmd.from_user.id
