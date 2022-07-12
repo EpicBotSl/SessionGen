@@ -56,6 +56,11 @@
       "description": "Your Heroku Api Key",
       "required": true,
       "value": ""
+   },
+    "AUTH_USERS": {
+      "description": "Admins For Bot",
+      "required": true,
+      "value": ""
     },
     "HEROKU_APP_NAME": {
       "description": "Heroku App name",
