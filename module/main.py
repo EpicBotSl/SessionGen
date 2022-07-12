@@ -54,4 +54,45 @@ Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
 DATABASE_URL=MONGO_URI
-db = Database(DATABASE_URL, "Memehub_bot")
+db = Database(DATABASE_URL, "Ss_bot"")
+
+#╔════╗────────╔═══╗
+#║╔╗╔╗║────────║╔══╝
+#╚╝║║╠╩═╦══╦╗╔╗║╚══╦══╦╦══╗
+#──║║║║═╣╔╗║╚╝║║╔══╣╔╗╠╣╔═╝
+#──║║║║═╣╔╗║║║║║╚══╣╚╝║║╚═╗
+#──╚╝╚══╩╝╚╩╩╩╝╚═══╣╔═╩╩══╝
+#──────────────────║║
+#──────────────────╚╝
+#---------------------------Commands Start Epic-------------------------------------#
+
+
+@app.on_message(filters.command("start"))
+async def start(app, message):
+    if await forcesub(app, message):
+       return
+    chat_id = message.from_user.id
+    if not await db.is_user_exist(chat_id):
+        data = await app.get_me()
+        BOT_USERNAME = data.username
+        await db.add_user(chat_id)
+        if -1001741009206:
+            await app.send_message(
+                -1001741009206,
+                f"#NEWUSER: \n\n**User:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n\**ID:**{message.from_user.id}\n Started @{BOT_USERNAME} !!",
+            )
+        else:
+            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
+    await message.delete()
+    file_id = "CAADAgADuQIAAladvQq6Ay8ze3xA6gI"
+    await app.send_sticker(message.chat.id, file_id)
+    text = f"""
+      ❣ᴍʏ ᴅᴇᴀʀ {message.from_user.mention} ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴇᴘɪᴄ ꜱᴛɪᴄᴋᴇʀ ʙᴏᴛ ⬗
+    ❦ᴄʟɪᴄᴋ ᴛᴏ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ ᴍᴇ"""
+    reply_markup = START_BUTTON  
+    await message.reply_text(
+        text=text,
+        reply_markup=reply_markup,
+        disable_web_page_preview=True,
+        quote=True
+    )
