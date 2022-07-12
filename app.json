@@ -4,7 +4,7 @@
   "logo": "https://te.legra.ph/file/97e45c843108aa0798a7d.jpg",
   "keywords": [
     "telegram",
-    "bot",
+    "bot", 
     "python",
     "pyrogram"
   ],
@@ -44,6 +44,16 @@
     },
     "AUTH_CHANNEL": {
       "description": "Your Fsub Channel Id",
+      "required": true,
+      "value": ""
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku Api Key",
+      "required": true,
+      "value": ""
+    },
+    "HEROKU_API_KEY": {
+      "description": "Heroku App name",
       "required": true,
       "value": ""
     },
