@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import *
 from pyrogram.types import *
 
-FORCESUB_BUTTONS = InlineKeyboardMarkup([[
+START_BUTTON = InlineKeyboardMarkup([[
                  InlineKeyboardButton('🍁ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴇꜱꜱɪᴏᴏɴɴ🍁', callback_data="generate")
                  ],
                  [
