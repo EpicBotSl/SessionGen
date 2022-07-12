@@ -88,12 +88,13 @@ async def start(client, message):
         else:
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     await message.delete()
-    file_id = "CAACAgUAAxkBAAEFP6NizSQGSs-OG1EEwuqJW88Zuv7G-gAC-wIAAu2OiVc9H9v8CkerjCkE"
+    file_id = "CAADBQADUAMAAmw9uFYaBSBThp9TKgI"
     await client.send_sticker(message.chat.id, file_id)
     text = f"""
       ❣ʜɪ {message.from_user.mention} 
    ⏦ɪ ᴀᴍ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴇᴛᴏʀ ʙᴏᴛ ⏦
 🍁ɪ ᴄᴀɴ ɢᴇɴᴇʀᴇʀᴀᴛᴇ :
+
         🌀**ᴘʏʀᴏɢʀᴀᴍ**
         🌀**ᴛᴇʟᴇᴛʜᴏɴ**
         🌀**ᴘʏʀᴏɢʀᴀᴍ ᴠ2**
