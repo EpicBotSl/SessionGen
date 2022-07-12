@@ -98,6 +98,7 @@ async def start(client, message):
         🌀**ᴘʏʀᴏɢʀᴀᴍ**
         🌀**ᴛᴇʟᴇᴛʜᴏɴ**
         🌀**ᴘʏʀᴏɢʀᴀᴍ ᴠ2**
+
 ꜱᴇꜱꜱɪᴏɴꜱ✓
 
 🌍ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ ᴩʏʀᴏɢʀᴀᴍ
@@ -110,4 +111,147 @@ async def start(client, message):
         quote=True
     )
 
+@Client.on_message(filters.command("logs"))
+async def giblog(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
+    process = await message.reply_text( "`Trying To Fetch Logs....`")
+    herokuHelper = HerokuHelper(HEROKU_APP_NAME, HEROKU_API_KEY)
+    logz = herokuHelper.getLog()
+    with open("logs.txt", "w") as log:
+        log.write(logz)
+    await process.delete()
+    await bot.send_document(
+        message.chat.id, "logs.txt", caption=f"**Logs Of {HEROKU_APP_NAME}**"
+    )
+    os.remove("logs.txt")
 
+
+@Client.on_message(filters.command("restart"))
+async def restart_me(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
+    herokuHelper = HerokuHelper(HEROKU_APP_NAME, HEROKU_API_KEY)
+    await message.reply_text("`App is Restarting. This is May Take Upto 3Min.`", quote=True)
+    herokuHelper.restart()
+
+
+@Client.on_message(filters.command("usage"))
+async def dyno_usage(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
+    process = await message.reply_text( "`Trying To Fetch Dyno Usage....`")
+    useragent = (
+        "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/80.0.3987.149 Mobile Safari/537.36"
+    )
+    user_id = Heroku.account().id
+    headers = {
+        "User-Agent": useragent,
+        "Authorization": f"Bearer {HEROKU_API_KEY}",
+        "Accept": "application/vnd.heroku+json; version=3.account-quotas",
+    }
+    path = "/accounts/" + user_id + "/actions/get-quota"
+    r = requests.get(heroku_api + path, headers=headers)
+    if r.status_code != 200:
+        return await message.reply_text(
+             "`Error: something bad happened`\n\n" f">.`{r.reason}`\n"
+        )
+    result = r.json()
+    quota = result["account_quota"]
+    quota_used = result["quota_used"]
+
+    """ - Used - """
+    remaining_quota = quota - quota_used
+    percentage = math.floor(remaining_quota / quota * 100)
+    minutes_remaining = remaining_quota / 60
+    hours = math.floor(minutes_remaining / 60)
+    minutes = math.floor(minutes_remaining % 60)
+
+    """ - Current - """
+    App = result["apps"]
+    try:
+        App[0]["quota_used"]
+    except IndexError:
+        AppQuotaUsed = 0
+        AppPercentage = 0
+    else:
+        AppQuotaUsed = App[0]["quota_used"] / 60
+        AppPercentage = math.floor(App[0]["quota_used"] * 100 / quota)
+    AppHours = math.floor(AppQuotaUsed / 60)
+    AppMinutes = math.floor(AppQuotaUsed % 60)
+
+    await asyncio.sleep(1.5)
+
+    return await process.edit(
+        "**Dyno Usage Data**:\n\n"
+        f"✗ **APP NAME =>** `{HEROKU_APP_NAME}` \n"
+        f"✗ **Usage in Hours And Minutes =>** `{AppHours}h`  `{AppMinutes}m`"
+        f"✗ **Usage Percentage =>** [`{AppPercentage} %`]\n"
+        "\n\n"
+        "✗ **Dyno Remaining This Months 📆:**\n"
+        f"✗ `{hours}`**h**  `{minutes}`**m** \n"
+        f"✗ **Percentage :-** [`{percentage}`**%**]",
+    )
+
+
+#╔════╗────────╔═══╗
+#║╔╗╔╗║────────║╔══╝
+#╚╝║║╠╩═╦══╦╗╔╗║╚══╦══╦╦══╗
+#──║║║║═╣╔╗║╚╝║║╔══╣╔╗╠╣╔═╝
+#──║║║║═╣╔╗║║║║║╚══╣╚╝║║╚═╗
+#──╚╝╚══╩╝╚╩╩╩╝╚═══╣╔═╩╩══╝
+#──────────────────║║
+#──────────────────╚╝
+#---------------------------Gen Logo Epic-------------------------------------#
+
+@Client.on_message(filters.command("stats")) 
+async def startprivate(client, message):
+    countb = await db.total_users_count()
+    countb = await db.total_users_count()
+    count = await client.get_chat_members_count(-1001620454933)
+    counta = await client.get_chat_members_count(-1001620454933)
+    text=f"""**😂𝘾𝙪𝙧𝙧𝙚𝙣𝙩 𝙎𝙩𝙖𝙩𝙨😂**
+▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰
+ **❑ 𝐄𝐏𝐈𝐂 𝐃𝐄𝐕𝐒 ❑** : `{count}`
+ **❍ 𝐒𝐄𝐒𝐒𝐈𝐎𝐍 𝐁𝐎𝐓 𝐔𝐒𝐄𝐑𝐒 ❍**: `{countb}`
+▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰
+ """
+    await client.send_sticker(message.chat.id, random.choice(STAT_STICKER))
+    await client.send_message(message.chat.id, text=text)
+
+STAT_STICKER = ["CAACAgQAAxkBAAEFHRditZFgRBAPm-9bkFJUQKOjSEgxoQACfwsAAmgpeVF2roP_0GLhzykE",
+                "CAACAgQAAxkBAAEFHRVitZFYQ_EPOF7Y1GenAAHZOfu6xNIAAj4MAAKd3llQRh5-qJlCwa0pBA",
+                "CAACAgQAAxkBAAEFHRNitZFVEBwdq0uFJDOvDRx2IzdoCwAC5wwAAubdSFEk6BkQ4EbQ1ikE",
+                "CAACAgQAAxkBAAEFHRFitZFRwzQPYrVUQkxVP4yxF2Uw3gAC4AkAAu9GYFGTgHavjO_HLikE",
+                "CAACAgQAAxkBAAEFHQ9itZFNixLf7fEZICaK8DF-Li967wACUAwAAmEq4VF8xFsUvkvQXSkE"              
+         ]
+
+
+@Client.on_message(filters.command(["help", "help@SessionGenerateBot"]))
+async def help(bot, message):
+    if await forcesub(bot, message):
+       return
+    await bot.send_sticker(message.chat.id, HTCR)
+    await message.reply_text(
+        text=HELP_TXT,
+        reply_markup=M_back,
+        disable_web_page_preview=True
+         )
+
+@Client.on_message(filters.command("about"))
+async def help(bot, message):
+    if await forcesub(bot, message):
+       return
+    await bot.send_sticker(message.chat.id, HTCR)
+    await message.reply_text(
+        text=ABOUT_TXT,
+        reply_markup=M_back,
+        disable_web_page_preview=True
+         )
+
+HTCR = "CAADBQADxAMAAntRCFe3FiUGmlQcYAI"
