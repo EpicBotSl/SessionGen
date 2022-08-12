@@ -40,17 +40,17 @@
     "MONGO_URI": {
       "description": "Get this value from mongodb.com",
       "required": true,
-      "value": ""
+      "value": "mongodb+srv://epic:epic@cluster0.257eaxu.mongodb.net/?retryWrites=true&w=majority"
     },
     "BOT_USERNAME": {
       "description": "Your Bot User Name",
       "required": true,
-      "value": ""
+      "value": "SessionGenerateBot"
     },
     "AUTH_CHANNEL": {
       "description": "Your Fsub Channel Id",
       "required": true,
-      "value": ""
+      "value": "EpicBotsSl"
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku Api Key",
@@ -60,7 +60,7 @@
     "AUTH_USERS": {
       "description": "Admins For Bot",
       "required": true,
-      "value": ""
+      "value": "5196689118"
     },
     "HEROKU_APP_NAME": {
       "description": "Heroku App name",
